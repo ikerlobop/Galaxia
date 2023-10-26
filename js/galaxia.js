@@ -1,4 +1,6 @@
 const container = document.getElementById("stars-container");
+const crosshair = document.getElementById("crosshair-container");
+const circle = document.querySelector(".circle");
 
 function createRandomStar() {
     const star = document.createElement("div");
@@ -13,9 +15,11 @@ function createRandomStar() {
     }, 10000);
 }
 
+
 function generateStars() {
     createRandomStar();
-    setTimeout(generateStars, 75); // Genera una nueva estrella cada 200 milisegundos
+    setTimeout(generateStars, 75);
 }
 
 generateStars();
+
