@@ -9,7 +9,7 @@ function createRandomStar() {
     star.style.top = `${Math.random() * 100}%`;
     container.appendChild(star);
 
-    // Elimina la estrella después de 5 segundos
+    // Elimina la estrella después de 10 segundos
     setTimeout(() => {
         container.removeChild(star);
     }, 10000);
