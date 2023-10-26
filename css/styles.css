@@ -16,20 +16,20 @@ body {
 
 .star {
     position: absolute;
-    background: rgb(222, 239, 70);
+    background: rgb(254, 255, 247);
     border-radius: 50%;
-    width: 2px;
-    height: 2px;
+    width: 5px;
+    height: 5px;
     animation: moveStar 5s linear infinite, twinkle 2s linear infinite;
     transform-origin: center;
 }
 
 @keyframes moveStar {
     0% {
-        transform: translate(-50%, -50%) scale(0.2) translateZ(0);
+        transform: translate(-50%, -50%) scale(0.7) translateZ(0);
     }
     100% {
-        transform: translate(-50%, -50%) scale(1) translateZ(-1000px);
+        transform: translate(-50%, -50%) scale(0.2) translateZ(-1000px);
     }
 }
 
