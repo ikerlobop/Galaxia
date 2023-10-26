@@ -15,7 +15,7 @@ function createRandomStar() {
 
 function generateStars() {
     createRandomStar();
-    setTimeout(generateStars, 500); // Genera una nueva estrella cada 200 milisegundos
+    setTimeout(generateStars, 75); // Genera una nueva estrella cada 200 milisegundos
 }
 
 generateStars();
