@@ -14,6 +14,13 @@ body {
     perspective: 1000px;
 }
 
+#crosshair {
+    position: absolute;
+    width: 60px; /* Ajusta el ancho del punto de mira según tus necesidades */
+    height: 60px; /* Ajusta la altura del punto de mira según tus necesidades */
+    pointer-events: none;
+}
+
 .star {
     position: absolute;
     background: rgb(254, 255, 247);

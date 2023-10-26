@@ -1,5 +1,5 @@
 const container = document.getElementById("stars-container");
-const crosshair = document.getElementById("crosshair-container");
+const crosshair = document.getElementById("crosshair");
 const circle = document.querySelector(".circle");
 
 function createRandomStar() {
@@ -15,6 +15,14 @@ function createRandomStar() {
     }, 10000);
 }
 
+document.addEventListener("mousemove", (event) => {
+    // Obtiene las coordenadas del cursor
+    const x = event.clientX;
+    const y = event.clientY;
+
+    // Ajusta la posición del punto de mira relativa a la posición del cursor
+    crosshair.style.transform = `translate(${x}px, ${y}px)`;
+});
 
 function generateStars() {
     createRandomStar();
@@ -22,4 +30,3 @@ function generateStars() {
 }
 
 generateStars();
-
