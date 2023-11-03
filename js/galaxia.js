@@ -15,6 +15,18 @@ function createRandomStar() {
         container.removeChild(star);
     }, 10000);
 }
+function createEnemies() {
+    const enemy = document.createElement("div");
+    enemy.classList.add("enemies");
+    enemy.style.left = `${Math.random() * 100}%`;
+    enemy.style.top = `${Math.random() * 100}%`;
+    container.appendChild(enemy);
+
+    // Elimina la estrella después de 10 segundos
+    setTimeout(() => {
+        container.removeChild(enemy);
+    }, 10000);
+}
 
 document.addEventListener("mousemove", (event) => {
     // Obtiene las coordenadas del cursor
@@ -31,6 +43,14 @@ function generateStars() {
 }
 
 generateStars();
+
+function generateEnemies() {
+    createEnemies();
+    setTimeout(generateEnemies, 1000);
+}
+
+generateEnemies();
+
 
 let crosshairVisible = false;
 
