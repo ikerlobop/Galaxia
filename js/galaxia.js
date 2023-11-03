@@ -18,7 +18,7 @@ function createRandomStar() {
 
 function getRandomColor() {
     var r = Math.floor(Math.random() * 256);
-    var g = Math.floor(Math.random() * 256);
+    var g = Math.floor(Math.random() * 254);
     var b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
   }
@@ -29,7 +29,7 @@ function createEnemies() {
     const enemy = document.createElement("div");
     enemy.classList.add("enemies");
     enemy.style.left = `${Math.random() * 100}%`;
-    enemy.style.top = `${Math.random() * 10}%`;
+    enemy.style.top = `${Math.random() * 100}%`;
     container.appendChild(enemy);
     VideoColorSpace = getRandomColor();
     enemy.style.backgroundColor = VideoColorSpace;
@@ -37,7 +37,7 @@ function createEnemies() {
     // Elimina la estrella después de 10 segundos
     setTimeout(() => {
         container.removeChild(enemy);
-    }, 15000);
+    }, 20000);
 }
 
 document.addEventListener("mousemove", (event) => {
@@ -58,7 +58,7 @@ generateStars();
 
 function generateEnemies() {
     createEnemies();
-    setTimeout(generateEnemies, 1500);
+    setTimeout(generateEnemies, 3000);
 }
 
 generateEnemies();
