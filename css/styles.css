@@ -54,10 +54,10 @@ body {
 
 @keyframes moveEnemy {
     0% {
-        transform: translate(-5%, -5%) translateZ(-5000px) scale(0.2);
+        transform: translate(-5%, -5%) translateZ(-1900px) scale(0.2);
     }
     100% {
-        transform: translate(0, 0) translateZ(0) scale(2);
+        transform: translate(0, 0) translateZ(1900px) scale(2);
     }
 }
 
