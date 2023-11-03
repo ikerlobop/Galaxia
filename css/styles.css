@@ -35,11 +35,11 @@ body {
 
 .enemies {
     position: absolute;
-    background: rgb(15, 15, 251);
+    background: rgb(254, 255, 247);
     border-radius: 50%;
     width: 60px;
     height: 25px;
-    animation: moveStar 5s linear infinite, twinkle 2s linear infinite;
+    animation: moveEnemy 5s linear infinite, twinkle 3s linear infinite;
     transform-origin: center;
 }
 
@@ -54,10 +54,10 @@ body {
 
 @keyframes moveEnemy {
     0% {
-        transform: translate(-50%, -50%) translateZ(-1000px) scale(0.2);
+        transform: translate(-5%, -5%) translateZ(-5000px) scale(0.2);
     }
     100% {
-        transform: translate(-50%, -50%) translateZ(0) scale(0.7);
+        transform: translate(0, 0) translateZ(0) scale(2);
     }
 }
 
