@@ -18,7 +18,20 @@ body {
     position: absolute;
     width: 60px; /* Ajusta el ancho del punto de mira según tus necesidades */
     height: 60px; /* Ajusta la altura del punto de mira según tus necesidades */
+    top: calc(0% - 30px);
+    left: calc(0% - 30px);
     pointer-events: none;
+}
+
+.rayo {
+    position: absolute;
+    width: 2px;
+    height: 1080px;
+    background-color: yellow;
+    top: calc(50% - 540px);
+    left: calc(50% - 1px);
+    transform-origin: bottom;
+    transition: transform 0.2s ease;
 }
 
 .star {
@@ -52,3 +65,10 @@ body {
     }
 }
 
+.rayo {
+    position: absolute;
+    background-color: yellow;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.2s ease;
+}
