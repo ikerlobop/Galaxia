@@ -23,23 +23,22 @@ body {
     pointer-events: none;
 }
 
-.rayo {
-    position: absolute;
-    width: 2px;
-    height: 1080px;
-    background-color: yellow;
-    top: calc(50% - 540px);
-    left: calc(50% - 1px);
-    transform-origin: bottom;
-    transition: transform 0.2s ease;
-}
-
 .star {
     position: absolute;
     background: rgb(254, 255, 247);
     border-radius: 50%;
     width: 5px;
     height: 5px;
+    animation: moveStar 5s linear infinite, twinkle 2s linear infinite;
+    transform-origin: center;
+}
+
+.enemies {
+    position: absolute;
+    background: rgb(15, 15, 251);
+    border-radius: 50%;
+    width: 60px;
+    height: 25px;
     animation: moveStar 5s linear infinite, twinkle 2s linear infinite;
     transform-origin: center;
 }
@@ -53,22 +52,17 @@ body {
     }
 }
 
-@keyframes twinkle {
+@keyframes moveEnemy {
     0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.8;
+        transform: translate(-50%, -50%) translateZ(-1000px) scale(0.2);
     }
     100% {
-        opacity: 1;
+        transform: translate(-50%, -50%) translateZ(0) scale(0.7);
     }
 }
 
-.rayo {
-    position: absolute;
-    background-color: yellow;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.2s ease;
-}
+
+
+
+
+
