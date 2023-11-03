@@ -32,37 +32,31 @@ function generateStars() {
 
 generateStars();
 
-const rayo = document.querySelector(".rayo");
+let crosshairVisible = false;
 
-document.addEventListener("click", (event) => {
-    if (!rayoActivo) {
-        // Marcamos el rayo como activo para evitar clics adicionales
-        rayoActivo = true;
+document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    // Obtiene las coordenadas del cursor
+    const x = event.clientX;
+    const y = event.clientY;
 
-        // Obtiene las coordenadas del punto de mira
-        const crosshairRect = crosshair.getBoundingClientRect();
-        const crosshairX = crosshairRect.left + crosshairRect.width / 2;
-        const crosshairY = crosshairRect.top + crosshairRect.height / 2;
+    // Ajusta la posición del punto de mira relativa a la posición del cursor
+    crosshair.style.transform = `translate(${x}px, ${y}px)`;
 
-        // Obtiene las coordenadas del evento de clic
-        const clickX = event.clientX;
-        const clickY = event.clientY;
-
-        // Calcula las diferencias en coordenadas
-        const diffX = crosshairX - clickX;
-        const diffY = crosshairY - clickY;
-
-        // Aplica la transformación para el rayo
-        rayo.style.transform = `translate(-50%, -100%) translateX(${diffX}px) translateY(${diffY}px) scaleY(1)`;
-
-        // Restablece los rayos después de un tiempo
-        setTimeout(() => {
-            rayo.style.transform = "translate(-50%, -100%) translateX(0) translateY(0) scaleY(0)";
-            
-            // Marcamos el rayo como inactivo después de desaparecer
-            rayoActivo = false;
-        }, 200);
+    if (crosshairVisible) {
+        // Si el punto de mira es visible, lo hacemos invisible
+        crosshair.style.display = "none";
+    } else {
+        // Si el punto de mira es invisible, lo hacemos visible y ajustamos su posición
+        const x = event.clientX;
+        const y = event.clientY;
+        crosshair.style.transform = `translate(${x}px, ${y}px)`;
+        crosshair.style.display = "block"; // Otra opción es "inline" o el valor apropiado
     }
+
+    // Alternamos el estado de visibilidad
+    crosshairVisible = !crosshairVisible;
+   
 });
 
 
