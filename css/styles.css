@@ -4,27 +4,28 @@ body {
     background-color: #000;
 }
 
-.container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #000;
- 
-  }
-
-  #ship {
-    width: 100%; /* Ancho relativo al contenedor */
-    padding-bottom: 100%; /* Altura relativa al contenedor (20% del ancho) */
-    background-image: url("images/ship.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+#ship {
+    width: 100px;
+    height: 100px;
     position: absolute;
-    z-index: 2; /* z-index mayor que el de las estrellas */
-  }
-  
-  
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.explosion-particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white; /* Se cambiará con un color aleatorio en JS */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 1; /* Comienza completamente opaca */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Se desvanece gradualmente */
+}
+
 
 #stars-container {
     position: absolute;
@@ -38,8 +39,8 @@ body {
 
 #crosshair {
     position: absolute;
-    width: 60px; /* Ajusta el ancho del punto de mira según tus necesidades */
-    height: 60px; /* Ajusta la altura del punto de mira según tus necesidades */
+    width: 60px;
+    height: 60px;
     top: calc(0% - 30px);
     left: calc(0% - 30px);
     pointer-events: none;
@@ -53,10 +54,20 @@ body {
     height: 5px;
     animation: moveStar 5s linear infinite, twinkle 2s linear infinite;
     transform-origin: center;
-    z-index: 1; /* z-index menor que el #ship */
-  }
-  
-  .enemies {
+    z-index: 1;
+}
+
+.bullet {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: yellow;
+    border-radius: 50%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.enemies {
     position: absolute;
     background: rgb(254, 255, 247);
     border-radius: 50%;
@@ -64,8 +75,8 @@ body {
     height: 25px;
     animation: moveEnemy 5s linear infinite, twinkle 3s linear infinite;
     transform-origin: center;
-    z-index: 1; /* z-index menor que el #ship */
-  }
+    z-index: 1;
+}
 
 @keyframes moveStar {
     0% {
@@ -84,9 +95,3 @@ body {
         transform: translate(0, 0) translateZ(1900px) scale(2);
     }
 }
-
-
-
-
-
-
